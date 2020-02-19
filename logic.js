@@ -2,7 +2,6 @@ function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
 }
 
-
 function euclide() {
     let over = 21
     let down = 11
@@ -14,7 +13,7 @@ function euclide() {
         x: Math.floor(Math.random() * over),
         y: Math.floor(Math.random() * down)
     }
-    // a zero value would 'look funny' on my janky 'graph'
+    // a zero value would 'look funny' on my janky 'table graph'
     if (xy1.x == 0) {
         xy1.x += 1
     }
@@ -32,7 +31,7 @@ function euclide() {
         euclide()
     }
 
-
+    // Make a 'graph'
     let table = "<table id='euclide' border='1'>"
     for (let r = 0; r < down; r++) {
         table += "<tr>"
@@ -65,14 +64,13 @@ function euclide() {
     const theDistance = Math.sqrt(a * a + b * b);
     const msg = `(${xy1.x},${xy1.y} and ${xy2.x},${xy2.y})`
     const obj = {
-        'problem': `${msg}`,  //  <br/> ${table}`,
+        'problem': `${msg}`,
         'problem_display': table, 
         'answer': theDistance,
         'candidates': getWrongAnswers(theDistance, theDistance),
-        'truncted': theDistance
+//        'truncted': theDistance
     }
     return obj
-
 }
 
 function getWrongAnswers(distance, truncated) {
@@ -95,14 +93,14 @@ function getSquareRootProblem() {
         r = 1
     }
     const sqrt = Math.sqrt(r)
-    const truncted = sqrt
+//    const truncted = sqrt
     const distance = Math.abs(1 - (truncted / sqrt))
     const obj = {
         'problem': `<math><msqrt><mi>${r}</mi></msqrt></math>`,
         'problem_display':'',
         'answer': sqrt,
-        'candidates': getWrongAnswers(distance, truncted),
-        'truncted': truncted
+        'candidates': getWrongAnswers(distance, sqrt),
+//        'truncted': truncted
     }
     return obj
 }
@@ -113,20 +111,18 @@ function getCubeRootProblem() {
         r = 1
     }
     const cube = Math.cbrt(r)
-    const truncted = cube
+//    const truncted = cube.toFixed(1)
 
-    // How far away from perfect answer is the truncted one?
-    // This will be used to help make 'incorrect' answers 
-    const distance = Math.abs(1 - (truncted / cube))
+    // This used to get a 'truncated' value...  ...not sure this make sense anymore
+    const distance = Math.abs(1 - (cube / cube)) 
 
     const obj = {
         'problem': `<math><mroot><mi>${r}</mi><mn>3</mn></mroot></math>`,
         'problem_display':'',
-        'candidates': getWrongAnswers(distance, truncted),
+        'candidates': getWrongAnswers(distance, cube),
         'answer': cube,
-        'truncted': truncted
+//        'truncted': truncted
     }
-    wrong = getWrongAnswers(distance, truncted)
     return obj
 }
 
