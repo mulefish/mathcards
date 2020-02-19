@@ -9,14 +9,20 @@
         #historyTable {
             margin-left:30px;
         }
-
+        #question_holder {
+            margin-top: 20px;
+            margin-bottom:20px;
+            margin-left: 20px;
+            margin-right:20px;
+            
+        }
          #question {
-         margin-top: 40px;
-         margin-left:100px;
-         font-size: 60px;
+            /* margin-top: 40px;
+            margin-left:100px; */
+            font-size: 60px;
          }
          #problem_display {
-            margin-left:100px;
+            /* margin-left:100px; */
          }   
          .tiny {
          font-size:11px;
@@ -50,14 +56,17 @@
       </style>
    </head>
    <body>
-      <table>
-      <div id='question'>                
-      </div>
-      <div id='problem_display'>      </div>
-      <hr/>
-      <div>
+
       <table border='1'>
          <tr>
+            <td valign='top'>
+                <div id="question_holder">
+                    <div id='question'></div>
+                    <div id='problem_display'> </div>
+                </div>
+            </td>
+
+
             <td valign='top'>
                <table border='1'>
                   <tr>
@@ -101,10 +110,7 @@
                      </td>
                   </tr>
                   <tr>
-                     <!-- <td>
-                        <button onclick="selectMe('next')">next</button>
-                        <button onclick="euclide()">euclide</button>
-                     </td> -->
+
                   </tr>
                </table>
             </td>
