@@ -6,7 +6,6 @@ function shuffle(array) {
 function euclide() {
     let over = 21
     let down = 11
-    // + 1 so that 0 never happens and 61 or 31 sometimes does 
     let xy1 = {
         x: Math.floor(Math.random() * over),
         y: Math.floor(Math.random() * down),
@@ -15,6 +14,7 @@ function euclide() {
         x: Math.floor(Math.random() * over),
         y: Math.floor(Math.random() * down)
     }
+    // a zero value would 'look funny' on my janky 'graph'
     if (xy1.x == 0) {
         xy1.x += 1
     }
