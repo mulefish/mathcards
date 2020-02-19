@@ -6,3 +6,6 @@ Only Firefox because I am using MathML markup and, come to find out, Chrome does
 
 # server
 I use python3 -m http.server 3030 and then localhost:3030/first.html
+
+# todo
+tdd ought to be better
